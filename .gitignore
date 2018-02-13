@@ -1,0 +1,6 @@
+# not allow temporary files
+*~
+*.swp
+.DS_Store
+
+.idea/
