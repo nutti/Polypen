@@ -17,18 +17,24 @@ bl_info = {
 if "bpy" in locals():
     import importlib
     importlib.reload(point_mode)
+    importlib.reload(view3d_polypen)
+    importlib.reload(properties)
 else:
     from . import point_mode
+    from . import view3d_polypen
+    from . import properties
 
 import bpy
 
 
 def register():
     bpy.utils.register_module(__name__)
+    properties.init_props(bpy.types.Scene)
 
 
 def unregister():
     bpy.utils.unregister_module(__name__)
+    properties.clear_props(bpy.types.Scene)
 
 
 if __name__ == "__main__":
